@@ -1,0 +1,74 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+        <title>Djando - Exercicios</title>
+    {% endblock %}
+
+    {% block corpo %}
+
+    <main class="container m-2 mx-auto my-font-family">
+
+        <div class="row">
+            <div class="col text-center m-0">
+                <h2 class="mt-2 mb-5 my-h2">Lista de Alunos</h2>
+            </div>
+        </div>
+
+        <!-- tabela responsiva -->
+        <div class="table-responsive">
+        </div>
+
+        {% else %}
+
+            <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
+            <table class="table
+                        table-borderless
+                        text-center
+                        my-table-hover
+                        my-table-image
+                        my-table-td-first-child
+                        my-table-border-bottom
+                        my-table-th
+                        w-100">
+
+                <!-- cabecalho -->
+                <thead>
+                    <!-- linhas -->
+                    <tr>
+                        <!-- colunas cabecalho -->
+                        <th>Matrícula</th>
+                        <th>Nome</th>
+                        <th>Data Matrícula</th>
+                        <th>Data Saída</th>
+                        <th>Aluno Monitor</th>
+                    </tr>
+                </thead>
+
+                <!-- linhas -->
+                 {% for alunos in alunos %}
+
+                <tr>
+                    <td> {{ aluno.Matrícula }} </td>
+                    <td> {{ aluno.nome }} </td>
+                    <td> {{ aluno.data_inicial|date: "d/m/Y" }} </td>
+                    <td> {{ aluno.data_final|date: "d/m/Y"}} </td>
+                    <td> {% aluno.data_inicial %} {{aluno.daa_final|date: "d/m/Y"}} {% else %} --- {%endif%} </td>
+                    <td> -- </td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        {% else %}
+            <div class = "text-danger">
+                <p>Não há alunos cadastrados.</p>
+            </div>
+
+        {% endif %}
+
+    </main>
+
+    {% endblock %}
