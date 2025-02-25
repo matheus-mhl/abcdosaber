@@ -4,23 +4,13 @@
         <title>Djando - Exercicios</title>
     {% endblock %}
 
-    {% block menu %}
-    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-      <div class="navbar-nav">
-          <a href="/" class="nav-link">Início</a>
-          <a href="{% url 'titulos:cadastro' %}" class="nav-link">Cadastrar</a>
-          <a href="{% url 'titulos:listar' %}" class="nav-link">Listar</a>
-      </div>
-  </div>
-{% endblock %}
-
     {% block corpo %}
 
     <main class="container m-2 mx-auto my-font-family">
 
         <div class="row">
             <div class="col text-center m-0">
-                <h2 class="mt-2 mb-5 my-h2">Lista de titulos</h2>
+                <h2 class="mt-2 mb-5 my-h2">Lista de tipodeatividade</h2>
             </div>
         </div>
 
@@ -28,7 +18,7 @@
         <div class="table-responsive">
         </div>
 
-        {% if titulos %}
+        {% else %}
 
             <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
             <table class="table
@@ -43,6 +33,7 @@
 
                 <!-- cabecalho -->
                 <thead>
+                    <!-- linhas -->
                     <tr>
                         <!-- colunas cabecalho -->
                         <th>Matrícula</th>
@@ -54,7 +45,7 @@
                 </thead>
 
                 <!-- linhas -->
-                 {% for ta in titulos %}
+                 {% for ta in tipodeatividade %}
 
                 <tr>
                     <td> {{ ta.codigo }} </td>
@@ -69,7 +60,7 @@
 
         {% else %}
             <div class = "text-danger">
-                <p>Não há titulos cadastrados.</p>
+                <p>Não há tipodeatividade cadastrados.</p>
             </div>
 
         {% endif %}
