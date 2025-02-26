@@ -9,7 +9,7 @@ def listar(request):
     return render (request, 'titulos/listar_titulos.html')
 
 def carregar_cadastro(request):
-    return render (request, 'titulos/cadastrar_titulos.html')
+    return render (request, 'titulos/cadastro_titulos.html')
 
 def cadastrar(request):
     form = TitulosForm(request.POST)
