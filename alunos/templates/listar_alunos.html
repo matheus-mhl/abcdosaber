@@ -1,7 +1,7 @@
 {% extends "base_template.html" %}
 
 {% block title %}
-        <title>Djando - Exercicios</title>
+        <title>Django - Exercicios</title>
     {% endblock %}
 
     {% block corpo %}
@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="col text-center m-0">
-                <h2 class="mt-2 mb-5 my-h2">Lista de tipodeatividade</h2>
+                <h2 class="mt-2 mb-5 my-h2">Lista de Alunos</h2>
             </div>
         </div>
 
@@ -45,11 +45,15 @@
                 </thead>
 
                 <!-- linhas -->
-                 {% for ta in tipodeatividade %}
+                 {% for alunos in alunos %}
 
                 <tr>
-                    <td> {{ ta.codigo }} </td>
-                    <td> {{ ta.descriçao }} </td>
+                    <td> {{ aluno.Matricula }} </td>
+                    <td> {{ aluno.nome }} </td>
+                    <td> {{ aluno.data_inicial|date: "d/m/Y" }} </td>
+                    <td> {{ aluno.data_final|date: "d/m/Y"}} </td>
+                    <td> {% if aluno.data_inicial %} {{aluno.data_final|date: "d/m/Y"}} {% else %} --- {%endif%} </td>
+                    <td> -- </td>
                 </tr>
 
                 {% endfor %}
@@ -59,10 +63,6 @@
         </div>
 
         {% else %}
-            <div class = "text-danger">
-                <p>Não há tipodeatividade cadastrados.</p>
-            </div>
-
         {% endif %}
 
     </main>

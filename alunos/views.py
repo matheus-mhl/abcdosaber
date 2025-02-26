@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from alunos.models import Alunos
 
 # Create your views here.
@@ -9,5 +8,4 @@ def listar(request):
     context = {
         'alunos': lista_alunos,
     }
-    
-    return render (request, 'alunos/listarAlunos.html', context = context)
+    return render (request, 'alunos/listar_alunos.html', context=context)

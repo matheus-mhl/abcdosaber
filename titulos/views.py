@@ -6,11 +6,18 @@ from titulos.forms import TitulosForm
 
 # Create your views here.
 def listar(request):
-    return render (request, 'titulos/listar_titulos.html')
+    lista_titulos = Titulos.objects.all()
+    context = {
+        'titulos': lista_titulos,
+    }
+    return render (request, 'titulos/listar_titulos.html', context)
 
+# chamada para carregar a pagina de cadastro no navegador
 def carregar_cadastro(request):
-    return render (request, 'titulos/cadastro_titulos.html')
+    return render (request, 'titulos/cadastrar_titulos.html')
 
+# chamada para processar os dados do formulario
+# devolve a pagina de cadastro para novo cadastramento
 def cadastrar(request):
     form = TitulosForm(request.POST)
     if form.is_valid():
@@ -19,5 +26,7 @@ def cadastrar(request):
             descricao = dados_titulos['descricao']
         )
         titulos.save()
-        
+    
     return render(request, 'titulos/cadastrar_titulos.html')
+        
+    

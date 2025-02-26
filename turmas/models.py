@@ -11,7 +11,7 @@ class Turmas(models.Model):
     numero = models.AutoField(primary_key=True, help_text="Informe a turma do Aluno")
     horario_aula = models.TimeField(help_text="Informe a hora em que a hora da aula da Turma")
     duracao_aula = models.SmallIntegerField(default=30, help_text="Informe a duração da aula da Turma")
-    data_inicial = models.DateField(default=timezone.now(), help_text="Informe a data inicial da Turma")    
+    data_inicial = models.DateField(default=timezone.now, help_text="Informe a data inicial da Turma")    
     data_final = models.DateField(null=True, blank=True, help_text="Informe a data final da Turma")
     codigo_atividade = models.ForeignKey(TipoDeAtividade, on_delete=models.CASCADE)
     matricula_monitor = models.ForeignKey(Alunos, null=True, blank=True, on_delete=models.SET_NULL)
@@ -31,7 +31,7 @@ class TurmaAlunos(models.Model):
     matricula_aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE,
                                         help_text="Matrícula do aluno da turma")
     data_inicio_matricula = models.DateField(null=False,
-                                             default=timezone.now(),
+                                             default=timezone.now,
                                              help_text="Data da matrícula do aluno na turma")
     data_fim_matricula = models.DateField(null=True, blank=True,
                                           help_text="Data de fim de matrícula do aluno na turma")    
@@ -47,7 +47,7 @@ class Ausencia(models.Model):
     matricula_aluno = models.ForeignKey(Alunos, on_delete=models.CASCADE,
                                         help_text="Matrícula do aluno da turma")
     data_ausencia = models.DateField(null=False,
-                                     default=timezone.now(),
+                                     default=timezone.now,
                                      help_text="Data da falta do aluno na turma")
 
     def __str__(self):

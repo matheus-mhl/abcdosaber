@@ -5,18 +5,18 @@
 {% endblock %}
 
 {% block menu %}
-            <!-- menu -->
-            <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-                <div class="navbar-nav">
-                    <a href="./escola.html" class="nav-link">Início</a>
-                    <a href="{% url 'tipodeatividade:listar' %}" class="nav-link">Tipos de Atividade</a>
-                    <a href="{% url 'titulos:cadastrar' %}" class="nav-link">Títulos</a>
-                    <a href="{% url 'alunos:listar' %}" class="nav-link">Alunos</a>
-                    <a href="{% url 'instrutores:listar'%}" class="nav-link">Instrutor</a>
-                    <a href="./turma/cadastroTurma.html" class="nav-link">Turmas</a>
-                    <a href="./contato/contato.html" class="nav-link">Contato</a>
-                </div>
-            </div>
+    <!-- menu -->
+    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+        <div class="navbar-nav">
+            <a href="./escola.html" class="nav-link">Início</a>
+            <a href="{% url 'tipodeatividade:listar' %}" class="nav-link">Tipos de Atividade</a>
+            <a href="{% url 'titulos:cadastro' %}" class="nav-link">Títulos</a>
+            <a href="{% url 'alunos:listar' %}" class="nav-link">Alunos</a>
+            <a href="{% url 'instrutores:listar'%}" class="nav-link">Instrutor</a>
+            <a href="./turma/cadastroTurma.html" class="nav-link">Turmas</a>
+            <a href="./contato/contato.html" class="nav-link">Contato</a>
+        </div>
+    </div>
 {% endblock %}
 
 
