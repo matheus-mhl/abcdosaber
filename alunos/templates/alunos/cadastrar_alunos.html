@@ -8,8 +8,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
         <div class="navbar-nav">
             <a href="/" class="nav-link">Início</a>
-            <a href="{% url 'instrutores:cadastro' %}" class="nav-link">Cadastrar</a>
-            <a href="{% url 'instrutores:listar' %}" class="nav-link">Listar</a>
+            <a href="{% url 'alunos:cadastro' %}" class="nav-link">Cadastrar</a>
+            <a href="{% url 'alunos:listar' %}" class="nav-link">Listar</a>
         </div>
     </div>
 {% endblock %}
@@ -19,19 +19,19 @@
 
     <div class="row">
         <div class="col text-center m-0">
-            <h2 class="mt-2 mb-5 my-h2">Cadastro de Instrutores</h2>
+            <h2 class="mt-2 mb-5 my-h2">Cadastro de alunos</h2>
         </div>
     </div>
 
-<form action="{% url 'instrutores:cadastrar' %}" method="POST" name="frmCadastrarInstrutores" id="idfrmCadastrarInstrutores">
+<form action="{% url 'alunos:cadastrar' %}" method="POST" name="frmCadastraralunos" id="idfrmCadastraralunos">
 
     <!-- formulario HTML -->
-    <form name="frmCadastrarInstrutores" action="#" method="post" class="my-label-color-purple">
+    <form name="frmCadastraralunos" action="#" method="post" class="my-label-color-purple">
         {% csrf_token %}
         <div class="form-group">
-            <label for="idNomeInstrutores" class="col-form-label">Nome do Instrutor</label>
-            <input class="form-control" type="text" id="idNomeInstrutores" name="nome"
-                placeholder="Informe o nome do instrutores" maxlength="70" required>
+            <label for="idNomealunos" class="col-form-label">Nome do Instrutor</label>
+            <input class="form-control" type="text" id="idNomealunos" name="nome"
+                placeholder="Informe o nome do alunos" maxlength="70" required>
         </div>
 
         <div class="form-group">
@@ -57,10 +57,10 @@
         </div>
 
         <div class="form-group">
-            <label for="idInstrutores">Título do Professor</label>
-            <select class="form-control" id="idInstrutores" name="codigoInstrutores">
+            <label for="idalunos">Título do Professor</label>
+            <select class="form-control" id="idalunos" name="codigoalunos">
                 <option value="0">Selecione...</option>
-                {% for t in instrutores %}
+                {% for t in alunos %}
                     <option value= "{{ t.codigo }} ">{{ t.descricao}}</option>
                     {% endfor %}
             </select>

@@ -1,7 +1,7 @@
 {% extends "base_template.html" %}
 
 {% block title %}
-        <title>Django - Exercicios</title>
+        <title>Djando - Exercicios</title>
     {% endblock %}
 
     {% block corpo %}
@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="col text-center m-0">
-                <h2 class="mt-2 mb-5 my-h2">Lista de Alunos</h2>
+                <h2 class="mt-2 mb-5 my-h2">Lista de instrutores</h2>
             </div>
         </div>
 
@@ -18,7 +18,7 @@
         <div class="table-responsive">
         </div>
 
-        {% else %}
+        {% if instrutores %}
 
             <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
             <table class="table
@@ -36,24 +36,25 @@
                     <!-- linhas -->
                     <tr>
                         <!-- colunas cabecalho -->
-                        <th>Matrícula</th>
+                        <th>RG</th>
                         <th>Nome</th>
-                        <th>Data Matrícula</th>
-                        <th>Data Saída</th>
-                        <th>Aluno Monitor</th>
+                        <th>Data Nascimento</th>
+                        <th>Telefone</th>
+                        <th>DDD</th>
+                        <th>Título</th>
                     </tr>
                 </thead>
 
                 <!-- linhas -->
-                 {% for alunos in alunos %}
+                 {% for i in instrutores %}
 
                 <tr>
-                    <td> {{ aluno.Matricula }} </td>
-                    <td> {{ aluno.nome }} </td>
-                    <td> {{ aluno.data_inicial|date: "d/m/Y" }} </td>
-                    <td> {{ aluno.data_final|date: "d/m/Y"}} </td>
-                    <td> {% if aluno.data_inicial %} {{aluno.data_final|date: "d/m/Y"}} {% else %} --- {%endif%} </td>
-                    <td> -- </td>
+                    <td> {{ i.rg }} </td>
+                    <td> {{ i.nome }} </td>
+                    <td> {{ i.data_Nascimento }} </td>
+                    <td> {{ i.telefone }} </td>
+                    <td> {{ i.ddd }} </td>
+                    <td> {{ i.titulos_codigo.descricao }} </td>
                 </tr>
 
                 {% endfor %}
@@ -63,6 +64,10 @@
         </div>
 
         {% else %}
+            <div class = "text-danger">
+                <p>Não há instrutores cadastrados.</p>
+            </div>
+
         {% endif %}
 
     </main>

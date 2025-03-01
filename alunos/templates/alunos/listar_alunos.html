@@ -1,7 +1,7 @@
 {% extends "base_template.html" %}
 
 {% block title %}
-        <title>Djando - Exercicios</title>
+        <title>Django - Exercicios</title>
     {% endblock %}
 
     {% block corpo %}
@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="col text-center m-0">
-                <h2 class="mt-2 mb-5 my-h2">Lista de instrutores</h2>
+                <h2 class="mt-2 mb-5 my-h2">Lista de Alunos</h2>
             </div>
         </div>
 
@@ -18,7 +18,7 @@
         <div class="table-responsive">
         </div>
 
-        {% else %}
+        {% if alunos %}
 
             <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
             <table class="table
@@ -36,27 +36,24 @@
                     <!-- linhas -->
                     <tr>
                         <!-- colunas cabecalho -->
-                        <th>ID</th>
-                        <th>RG</th>
+                        <th>Matrícula</th>
                         <th>Nome</th>
-                        <th>Data Nascimento</th>
-                        <th>DDD</th>
-                        <th>Telefone</th>
-                        <th>Título</th>
+                        <th>Data Matrícula</th>
+                        <th>Data Saída</th>
+                        <th>Aluno Monitor</th>
                     </tr>
                 </thead>
 
                 <!-- linhas -->
-                 {% for ta in instrutores %}
+                 {% for alunos in alunos %}
 
                 <tr>
-                    <td> {{ i.id }} </td>
-                    <td> {{ i.rg }} </td>
-                    <td> {{ i.nome }} </td>
-                    <td> {{ i.data_Nascimento }} </td>
-                    <td> {{ i.ddd }} </td>
-                    <td> {{ i.telefone }} </td>
-                    <td> {{ i.titulo.descricao }} </td>
+                    <td> {{ alunos.Matricula }} </td>
+                    <td> {{ alunos.nome }} </td>
+                    <td> {{ alunos.data_inicial|date:"d/m/Y" }} </td>
+                    <td> {{ alunos.data_final|date:"d/m/Y"}} </td>
+                    <td> {% if alunos.data_inicial %} {{aluno.data_final|date:"d/m/Y"}} {% else %} --- {%endif%} </td>
+                    <td> -- </td>
                 </tr>
 
                 {% endfor %}
@@ -66,10 +63,6 @@
         </div>
 
         {% else %}
-            <div class = "text-danger">
-                <p>Não há instrutores cadastrados.</p>
-            </div>
-
         {% endif %}
 
     </main>
